@@ -21,7 +21,7 @@ Desenvolver as funcionalidades conforme requisitos
 - [CT003] Cadastre, altere e exclua um motorista.
 - [CT004] Cadastre um pedido para cada motorista.
     - [CT004.1] Pelo menos um motorista deve ter dois ou mais pedidos cadastrados.
-- [CT003] Cadastre, altere e exclua um pedido.
+- [CT005] Cadastre, altere e exclua um pedido.
 
 ## Tecnologias
 
