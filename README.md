@@ -83,4 +83,5 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar
 
 
 
+![Captura de tela 2025-04-15 165949](https://github.com/user-attachments/assets/2b84dfae-cfa5-498d-a164-14f9b6fc554c)
 
