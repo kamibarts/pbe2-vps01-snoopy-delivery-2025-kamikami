@@ -1,28 +1,85 @@
-# SNOOPY PetShop Delivery API
-Situação de Aprendizagem - Back-End (Node.JS, JavaSript, VsCode, ORM Prisma, Insomnia)
-## Contextualização
-SNOOPY PetShop tem atuado em nossa cidade com ótimo atendimento e agilidade, é nosso cliente e necessita de um sistema Web para registro das entregas ou serviços a domicílio, como busca de animais para banho, tosa e outros serviços.<br>O P.O. após uma visita ao cliente elaborou o DER e UML DC(Diagrama de Classes) a seguir e elencou os requisitos funcionais.<br>
-![DER e DC](./docs/snoopy-der-dc.png)
-## Desafio
-Desenvolver as funcionalidades conforme requisitos
+🚀 Como Executar o Projeto
+Pré-requisitos:
+Certifique-se de ter instalados:
 
-### Requisitos funcionais
-- [RF001] O sistema deve permitir o CRUD de Motoristas.
-    - [RF001.1] Um motorista pode possuir mais de um telefone ou nenhum, desta forma o campo telefones deve ter espaço suficiente para cadastrar vários números (255 caracteres) e permitir nulo.
-    - [RF001.2] A rota **readOne** do motorista deve mostrar os dados de um cliente específico e seus pedidos.
-- [RF002] O sistema deve permitir o CRUD de pedidos.
-    - [RF002.1] O sistema deve associar o pedido a um motorista.
-    - [RF002.1] O Pedido deve na rota **read** deve somar o total dos **valores**.
+Node.js (v14 ou superior)
 
-### Casos de teste (Insomnia)
-- [CT001] Deve ser cadastrado pelo menos 5 motoristas.
-- [CT002] Deve ser cadastrado 1 telefone para cada motorista.
-    - [CT002.1] Pelo menos 1 motorista não deve ter telefone cadastrado, ou seja **nulo**.
-- [CT003] Cadastre, altere e exclua um motorista.
-- [CT004] Cadastre um pedido para cada motorista.
-    - [CT004.1] Pelo menos um motorista deve ter dois ou mais pedidos cadastrados.
-- [CT005] Cadastre, altere e exclua um pedido.
+MySQL (configurado com as credenciais do arquivo .env)
 
-## Tecnologias
+Passo a Passo:
+Clone o repositório:
 
-## Passo a Passo de como executar a API
+bash
+git clone <URL_DO_REPOSITORIO>
+cd snoopy-petshop
+Instale as dependências:
+
+bash
+npm install
+Configure o arquivo .env com as credenciais do banco de dados:
+
+DATABASE_URL="mysql://usuario:senha@localhost:3306/snoopy_petshop"
+Inicialize o Prisma:
+
+bash
+npx prisma generate
+Execute as migrações para criar as tabelas no banco:
+
+bash
+npx prisma migrate dev --name init
+Inicie o servidor:
+
+bash
+npm run dev
+Teste as rotas usando o Insomnia ou outra ferramenta de sua preferência.
+
+📂 Estrutura de Pastas
+snoopy-petshop/
+├── prisma/
+│   ├── schema.prisma     # Modelo do banco de dados
+├── src/
+│   ├── controllers/      # Lógica das rotas (CRUD de motoristas e pedidos)
+│   ├── routes/           # Arquivo para definir as rotas
+│   └── server.js         # Configuração do servidor
+├── .env                  # Configuração de variáveis de ambiente
+├── package.json          # Configurações e scripts do projeto
+📋 Endpoints Principais
+Motoristas
+Método	Rota	Descrição
+POST	/motoristas	Cadastrar motorista
+GET	/motoristas	Listar todos os motoristas
+GET	/motoristas/:id	Buscar motorista pelo ID
+PUT	/motoristas/:id	Atualizar motorista pelo ID
+DELETE	/motoristas/:id	Excluir motorista pelo ID
+Pedidos
+Método	Rota	Descrição
+POST	/pedidos	Cadastrar pedido
+GET	/pedidos	Listar todos os pedidos
+GET	/pedidos/:id	Buscar pedido pelo ID
+PUT	/pedidos/:id	Atualizar pedido pelo ID
+DELETE	/pedidos/:id	Excluir pedido pelo ID
+🧪 Exemplos de Testes (Insomnia)
+Cadastrar Motorista (POST /motoristas)
+json
+{
+  "email": "motorista@email.com",
+  "nome": "Carlos dos Santos",
+  "telefones": "(11) 98765-4321"
+}
+Cadastrar Pedido (POST /pedidos)
+json
+{
+  "motoristaId": 1,
+  "data": "2025-04-15T14:30:00.000Z",
+  "produto": "Casinha",
+  "valor": 40.50,
+  "endereco": "Rua dos Anjos",
+  "numero": "163",
+  "cep": "12345-978",
+  "complemento": "Bloco A"
+}
+📌 Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+Se precisar de algum ajuste ou mais exemplos, só avisar! 🚀
+
