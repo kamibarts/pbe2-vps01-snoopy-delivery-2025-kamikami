@@ -81,5 +81,6 @@ json
 📌 Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
 
-Se precisar de algum ajuste ou mais exemplos, só avisar! 🚀
+
+
 
